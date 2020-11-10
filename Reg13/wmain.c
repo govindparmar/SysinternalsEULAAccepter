@@ -4,7 +4,7 @@
 #include <sal.h>
 
 #pragma comment(lib, "pathcch.lib")
-#define WMain wmain
+#define WMain wmain // OCD
 
 _Success_(return == ERROR_SUCCESS)
 
