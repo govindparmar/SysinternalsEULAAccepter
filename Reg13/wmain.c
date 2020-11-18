@@ -4,7 +4,7 @@
 #include <sal.h>
 
 #pragma comment(lib, "pathcch.lib")
-#define WMain wmain // OCD
+#define WMain wmain
 
 _Success_(return == ERROR_SUCCESS)
 
@@ -57,6 +57,7 @@ INT WINAPIV WMain (_In_ INT nArgc, _In_reads_(nArgc) WCHAR *pArgv[])
 		dwError = GetLastError();
 		goto cleanup;
 	}
+
 	do
 	{
 		WCHAR *pExt = NULL, *pDot = NULL;
@@ -66,9 +67,9 @@ INT WINAPIV WMain (_In_ INT nArgc, _In_reads_(nArgc) WCHAR *pArgv[])
 		{
 			continue;
 		}
+		
 		PathCchFindExtension(wfd.cFileName, MAX_PATH, &pExt);
-		//MessageBoxW(NULL, pExt, L"", MB_OK | MB_ICONSTOP);
-		// In other words. If pExt == "exe" OR pExt != ".exe"
+		
 		if (_wcsicmp(pExt, L"exe") == 0 || _wcsicmp(pExt, L".exe") == 0)
 		{
 			StringCchCopyW(wszFileArgument, MAX_PATH, wfd.cFileName);
