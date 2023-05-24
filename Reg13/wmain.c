@@ -70,7 +70,7 @@ INT WINAPIV WMain (_In_ INT nArgc, _In_reads_(nArgc) WCHAR *pArgv[])
 		
 		PathCchFindExtension(wfd.cFileName, MAX_PATH, &pExt);
 		
-		if (_wcsicmp(pExt, L"exe") == 0 || _wcsicmp(pExt, L".exe") == 0)
+		if (*pExt && (_wcsicmp(pExt, L"exe") == 0 || _wcsicmp(pExt, L".exe") == 0))
 		{
 			StringCchCopyW(wszFileArgument, MAX_PATH, wfd.cFileName);
 			if ((pDot = wcschr(wszFileArgument, L'.')) != NULL)
